@@ -13,13 +13,10 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
-service:
-  type: ClusterIP
+lbservice:
+  type: LoadBalancer
   port: 80
+  targetPort: 8080
 
 appservice:
   type: NodePort

@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "colors-app.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "colors-app.fullname" . }}:{{ .Values.lbservice.port }}']
   restartPolicy: Never
