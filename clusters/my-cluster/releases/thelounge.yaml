@@ -24,8 +24,3 @@ spec:
         kind: HelmRepository
         name: thelounge
       version: 4.3.0
-  values:
-    ingress:
-      enabled: true
-      hosts:
-        - lol.local
