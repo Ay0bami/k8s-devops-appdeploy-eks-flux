@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: {{ .Chart.Name }}
-        image: "{{ .Values.repo.name }}:{{ .Values.repo.tag }}"
+        image: "{{ .Values.dbrepo.name }}:{{ .Values.dbrepo.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - name: mysql-db
