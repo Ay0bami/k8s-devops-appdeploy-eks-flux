@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-db-dep
+  namespace: color-be
+  labels:
+    infra: backend
+    app: mysql
+    env: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        infra: backend
+        app: mysql
+        env: prod
+    spec:
+      containers:
+      - name: mysql-db
+        image: {{ .Values.repo }}
+        imagePullPolicy: Always
+        ports:
+        - name: mysql-db
+          containerPort: 3306
+          protocol: TCP
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-db-cred
+              key: password
+      imagePullSecrets:
+      - name: ecr-cred  

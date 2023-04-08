@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-db-dep
+  namespace: color-be
+  labels:
+    infra: backend
+    env: prod
+spec:
+  ports:
+  - name: mysql-db
+    port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    env: prod
