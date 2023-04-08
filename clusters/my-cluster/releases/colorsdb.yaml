@@ -1,0 +1,23 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: colors-db
+  namespace: color-be
+spec:
+  interval: 1m
+  url: https://ksbolton.github.io/k8s-devops-appdeploy-eks/charts/colors-db
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: colors-db
+  namespace: color-be
+spec:
+  interval: 1m
+  releaseName: colors-db
+  chart:
+    spec:
+      chart: colors-db
+      sourceRef:
+        kind: HelmRepository
+        name: colors-db
