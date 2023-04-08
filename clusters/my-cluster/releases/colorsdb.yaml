@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: colors-db
+  name: colorsdb
   namespace: color-be
 spec:
   interval: 1m
@@ -10,14 +10,14 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: colors-db
+  name: colorsdb
   namespace: color-be
 spec:
   interval: 1m
-  releaseName: colors-db
+  releaseName: colorsdb
   chart:
     spec:
       chart: colors-db
       sourceRef:
         kind: HelmRepository
-        name: colors-db
+        name: colorsdb
