@@ -23,7 +23,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: thelounge
-    version: 4.3.0
+      version: 4.3.0
   values:
     ingress:
       enabled: true
