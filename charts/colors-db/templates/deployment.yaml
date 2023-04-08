@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-db-dep
-  namespace: color-be
+  name: {{ .Values.deployname }}
+  namespace: {{ .Values.namespace }}
   labels:
     infra: backend
     app: mysql
     env: prod
 spec:
-  replicas: 1
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
   selector:
     matchLabels:
-      app: mysql
+      {{- include "colors-db.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        infra: backend
-        app: mysql
-        env: prod
+        {{- include "colors-db.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-      - name: mysql-db
-        image: {{ .Values.repo }}
-        imagePullPolicy: Always
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.repo.name }}:{{ .Values.repo.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - name: mysql-db
-          containerPort: 3306
+          containerPort: {{ .Values.dbservice.port }}
           protocol: TCP
         env:
         - name: MYSQL_ROOT_PASSWORD

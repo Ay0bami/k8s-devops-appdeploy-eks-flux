@@ -6,7 +6,10 @@ labels:
   infra: backend
   app: mysql
   env: prod
-  
+
+namespace: color-be
+deployname: mysql-db-dep
+
 replicaCount: 1
 
 image:
@@ -18,15 +21,6 @@ image:
 imagePullSecrets: [] # Need override here - KB
 nameOverride: ""
 fullnameOverride: ""
-
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
 
 podAnnotations: {}
 
@@ -45,21 +39,10 @@ service:
   type: ClusterIP
   port: 80
 
-ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+dbservice:
+  type: ClusterIP
+  port: 3306
+  targetPort: 3306
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -79,9 +62,3 @@ autoscaling:
   maxReplicas: 2
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}

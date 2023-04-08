@@ -48,6 +48,8 @@ Selector labels
 {{- define "colors-db.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "colors-db.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+app: mysql
+env: prod
 {{- end }}
 
 {{/*

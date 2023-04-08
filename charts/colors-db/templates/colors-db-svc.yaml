@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-db-dep
+  name: {{ .Values.deployname }}
   namespace: color-be
   labels:
-    infra: backend
-    env: prod
+    {{- include "colors-db.selectorLabels" . | nindent 4 }}
 spec:
+  type: {{ .Values.dbservice.type }}
   ports:
   - name: mysql-db
-    port: 3306
+    port: {{ .Values.dbservice.port }}
     protocol: TCP
-    targetPort: 3306
+    targetPort: {{ .Values.dbservice.targetPort}}
   selector:
     env: prod
