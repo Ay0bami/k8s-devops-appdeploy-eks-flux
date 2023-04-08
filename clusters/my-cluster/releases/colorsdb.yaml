@@ -21,3 +21,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: colorsdb
+      valuesFiles:
+        - secretvalues.yaml
