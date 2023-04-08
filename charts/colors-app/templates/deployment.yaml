@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployname }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    infra: frontend
+    app: employees
+    env: prod
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "colors-app.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "colors-app.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.apprepo.name }}:{{ .Values.apprepo.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: web8080
+          containerPort: {{ .Values.appservice.port }}
+          protocol: TCP
+        env:
+        - name: DBHOST
+          value: "mysql-db-dep.color-be"
+        - name: DBPORT
+          value: {{ .Values.env.dbport | quote }}
+        - name: DBPWD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-db-cred
+              key: password
+        - name: APP_COLOR
+          value: {{ .Values.env.appcolor | quote }}
+      imagePullSecrets:
+      - name: ecr-cred          
