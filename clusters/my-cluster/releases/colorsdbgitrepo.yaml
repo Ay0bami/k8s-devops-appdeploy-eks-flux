@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: colorsapp
-  namespace: color-fe
+  namespace: color-be
 spec:
   interval: 1m
   url: https://github.com/KSBolton/k8s-devops-appdeploy-eks
@@ -17,14 +17,14 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: colorsapp
-  namespace: color-fe
+  name: colorsdb
+  namespace: color-be
 spec:
   interval: 1m
-  releaseName: colorsapp
+  releaseName: colorsdb
   chart:
     spec:
-      chart: charts/colors-app
+      chart: charts/colors-db
       sourceRef:
         kind: GitRepository
         name: colorsapp
