@@ -1,3 +1,5 @@
 charts/secretvalues.yaml
 charts/default/*
 charts/learn/*
+ecrpwd.yaml
+hr-sealedsecrets.yaml
