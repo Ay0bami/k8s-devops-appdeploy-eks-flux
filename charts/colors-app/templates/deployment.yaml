@@ -35,8 +35,8 @@ spec:
         - name: DBPWD
           valueFrom:
             secretKeyRef:
-              name: mysql-db-cred
-              key: password
+              name: dbpwd
+              key: dbpwd
         - name: APP_COLOR
           value: {{ .Values.env.appcolor | quote }}
       imagePullSecrets:
