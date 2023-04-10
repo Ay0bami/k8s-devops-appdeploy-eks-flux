@@ -2,6 +2,14 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+dbrepo: 
+  name: 954333580089.dkr.ecr.us-east-1.amazonaws.com/clo835-a1-mysqldb
+  tag: latest
+
+apprepo:
+  name: 954333580089.dkr.ecr.us-east-1.amazonaws.com/clo835-a1-webapp
+  tag: latest
+
 namespace: color-fe
 deployname: mysql-app-dep
 
