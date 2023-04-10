@@ -2,10 +2,9 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-labels:
-  infra: backend
-  app: mysql
-  env: prod
+passwords:
+  ecrpasswd: <don't put passwords here>
+  dbpasswd: <don't put passwords here>
 
 namespace: color-be
 deployname: mysql-db-dep
