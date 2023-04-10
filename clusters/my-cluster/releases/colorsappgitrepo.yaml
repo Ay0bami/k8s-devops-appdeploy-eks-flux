@@ -2,6 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: colorsapp
+  namespace: color-fe
 spec:
   interval: 1m
   url: https://github.com/KSBolton/k8s-devops-appdeploy-eks
