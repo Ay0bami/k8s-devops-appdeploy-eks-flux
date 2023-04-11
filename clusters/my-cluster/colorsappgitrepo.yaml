@@ -25,6 +25,7 @@ spec:
   chart:
     spec:
       chart: charts/colors-app
+      reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
         name: colorsapp
