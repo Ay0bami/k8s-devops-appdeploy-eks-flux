@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			background-image: url({{ bg }});
+			background-repeat: no-repeat;
+			background-attachment: fixed;  
+  			background-size: cover;
+		}
+	</style>
+	<meta name="Group Members" content="{{ fiwiname }}" />	
+<center>
+	<font color="DodgerBlue" size="5" style="font-family: avenir">
+		<h1>The employee {{ name }} was successfully added to the database</h1><br>
+		<h2>The Employee has been added to the database</h2><br>
+		<h2>{{ name }}</h2><br>
+		<title>Add Emp Output</title>
+		<a href="{{ url_for('home') }}">Back</a>
+	</font>
+</center>
+</head>
+<body>
+    <footer style="background:#302ea3;color:white;height:25px;font-size:14pt">
+	  <p>Group 8 members: {{ fiwiname }}<br>
+	</footer>
+</body>
+</html>

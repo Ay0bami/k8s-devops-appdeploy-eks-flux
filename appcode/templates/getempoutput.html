@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Information</title>
+	<style>
+		body {
+			background-image: url({{ bg }});
+			background-repeat: no-repeat;
+			background-attachment: fixed;  
+  			background-size: cover;
+		}
+	</style>
+	<meta name="Group Members" content="{{ fiwiname }}" />	
+</head>
+<center>
+	<font color="black" size="5" style="font-family: avenir">
+
+		<h1 style="color: DodgerBlue">Employee Information</h1>
+
+			<form>
+
+				<div>
+
+			  		Employee ID:<br> {{ id }} <br><br>
+
+			  		First Name:<br> {{ fname }} <br><br>
+
+			  		Last Name:<br> {{ lname }} <br><br>
+
+			  		Primary Interest:<br> {{ interest }} <br><br>
+
+			  		Location:<br> {{ location }} <br><br>
+			  		
+			  	</div>
+
+			</form>
+			<a href="{{ url_for('home') }}">Back</a>
+			
+            <footer style="background:#302ea3;color:white;height:25px;font-size:14pt">
+			  <p>Group 8 members: {{ fiwiname }}<br>
+			</footer>			
+		</body>
+
+	</font>
+</center>
+</html>
