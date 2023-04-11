@@ -28,7 +28,7 @@ lbservice:
   targetPort: 81
 
 appservice:
-  name: HTTP/81
+  name: http81
   type: NodePort
   port: 81
   targetPort: 81
