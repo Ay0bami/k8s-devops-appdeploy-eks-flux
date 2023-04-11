@@ -11,4 +11,4 @@ spec:
     - protocol: TCP
       port: {{ .Values.lbservice.port }}
       targetPort: {{ .Values.lbservice.targetPort }}
-  type: {{ .Values.lbservice.type }}
+  # type: {{ .Values.lbservice.type }}
