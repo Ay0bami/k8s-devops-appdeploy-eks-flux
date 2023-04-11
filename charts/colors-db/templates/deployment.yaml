@@ -33,7 +33,7 @@ spec:
             configMapKeyRef:
               name: webappinfo
               key: dbuser        
-        - name: MYSQL_ROOT_PASSWORD
+        - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
               name: dbpwd
