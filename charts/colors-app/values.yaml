@@ -14,7 +14,7 @@ apprepo:
 namespace: color-fe
 deployname: mysql-app-dep
 
-replicaCount: 3
+replicaCount: 1
 
 image:
   repository: nginx
