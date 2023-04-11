@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: webappinfo
+  namespace: color-fe
+data:
+  dbuser: "dbadmin"

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: webappinfo
+  namespace: color-fe
+data:
+  bgimage: "https://img.freepik.com/free-photo/pastel-acrylic-abstract-background-vector_53876-102998.jpg?w=1060&t=st=1681215107~exp=1681215707~hmac=7331680eed0bca896052cb326e7a25bd98258f4c1c2e568832c62ded89f6a6e4"
+  ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan"
+  dbuser: "dbadmin"

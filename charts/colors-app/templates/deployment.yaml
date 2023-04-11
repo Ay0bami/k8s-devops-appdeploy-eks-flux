@@ -32,12 +32,25 @@ spec:
           value: "mysql-db-dep.color-be"
         - name: DBPORT
           value: {{ .Values.env.dbport | quote }}
+        - name: DBUSER
+          valueFrom:
+            configMapKeyRef:
+              name: webappinfo
+              key: dbuser
         - name: DBPWD
           valueFrom:
             secretKeyRef:
               name: dbpwd
               key: dbpwd
-        - name: APP_COLOR
-          value: {{ .Values.env.appcolor | quote }}
+        - name: BGIMAGE
+          valueFrom:
+            configMapKeyRef:
+              name: webappinfo
+              key: bgimage
+        - name: OURNAMES
+          valueFrom:
+            configMapKeyRef:
+              name: webappinfo
+              key: ournames
       imagePullSecrets:
       - name: ecr-cred          
