@@ -24,13 +24,14 @@ image:
 
 lbservice:
   type: LoadBalancer
-  port: 80
-  targetPort: 8080
+  port: 81
+  targetPort: 81
 
 appservice:
+  name: HTTP/81
   type: NodePort
-  port: 8080
-  targetPort: 8080
+  port: 81
+  targetPort: 81
   nodePort: 30000
 
 env:

@@ -24,7 +24,7 @@ spec:
         image: "{{ .Values.apprepo.name }}:{{ .Values.apprepo.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - name: web8080
+        - name: {{ .Values.appservice.name }}
           containerPort: {{ .Values.appservice.port }}
           protocol: TCP
         env:
