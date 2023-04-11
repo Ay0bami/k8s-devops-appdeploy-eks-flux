@@ -28,7 +28,7 @@ spec:
           containerPort: {{ .Values.dbservice.port }}
           protocol: TCP
         env:
-        - name: DBUSER
+        - name: MYSQL_USER
           valueFrom:
             configMapKeyRef:
               name: webappinfo
