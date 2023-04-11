@@ -1,7 +1,7 @@
 # Default values for colors-app.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-# Testing a change to this GitRepository.
+# Testing a change to this GitRepository..
 
 dbrepo: 
   name: 954333580089.dkr.ecr.us-east-1.amazonaws.com/clo835-a1-mysqldb
