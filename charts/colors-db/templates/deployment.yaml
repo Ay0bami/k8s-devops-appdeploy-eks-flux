@@ -38,5 +38,10 @@ spec:
             secretKeyRef:
               name: dbpwd
               key: dbpwd
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: dbpwd
+              key: dbpwd              
       imagePullSecrets:
       - name: ecr-cred
