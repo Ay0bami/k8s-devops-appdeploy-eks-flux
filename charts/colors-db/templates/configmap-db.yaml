@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: entrypoint
+  namespace: color-be
+data:
+{{ (.Files.Get "../edited-entrypoint.sh").AsConfig | indent 2 }}

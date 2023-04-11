@@ -27,6 +27,8 @@ spec:
         - name: mysql-db
           containerPort: {{ .Values.dbservice.port }}
           protocol: TCP
+        command: ["/bin/bash"]
+        args: ["/grp8-scripts/edited-entrypoint.sh"]
         env:
         - name: MYSQL_USER
           valueFrom:
@@ -42,6 +44,13 @@ spec:
           valueFrom:
             secretKeyRef:
               name: dbpwd
-              key: dbpwd              
+              key: dbpwd
+        volumeMounts:
+        - name: script-dir
+          mountPath: /grp8-scripts
+      volumes:
+      - name: script-vol
+        configMap:
+          name: entrypoint  
       imagePullSecrets:
       - name: ecr-cred
