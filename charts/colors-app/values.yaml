@@ -9,7 +9,7 @@ dbrepo:
 
 apprepo:
   name: 954333580089.dkr.ecr.us-east-1.amazonaws.com/clo835-a1-webapp
-  tag: v2.0
+  tag: latest
 
 namespace: color-fe
 deployname: mysql-app-dep
