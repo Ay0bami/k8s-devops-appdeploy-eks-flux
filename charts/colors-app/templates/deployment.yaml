@@ -1,4 +1,4 @@
-# Manual update 2
+# Manual update 3
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -30,7 +30,7 @@ spec:
           protocol: TCP
         env:
         - name: DBHOST
-          value: "mysql-db-dep.color-be"
+          value: {{ .Values.env.dbhost | quote }}
         - name: DBPORT
           value: {{ .Values.env.dbport | quote }}
         - name: DBUSER

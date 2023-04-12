@@ -35,6 +35,7 @@ appservice:
   nodePort: 30000
 
 env:
+  dbhost: mysql-db-dep.color-be
   dbport: 3306
   appcolor: green
 
