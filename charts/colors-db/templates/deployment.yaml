@@ -30,10 +30,15 @@ spec:
         command: ["/bin/bash"]
         args: ["/grp8-scripts/edited-entrypoint.sh"]
         env:
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: dbinfo
+              key: database
         - name: MYSQL_USER
           valueFrom:
             configMapKeyRef:
-              name: webappinfo
+              name: dbinfo
               key: dbuser        
         - name: MYSQL_PASSWORD
           valueFrom:
@@ -43,14 +48,7 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: dbpwd
-              key: dbpwd
-        volumeMounts:
-        - name: script-dir
-          mountPath: /grp8-scripts
-      volumes:
-      - name: script-vol
-        configMap:
-          name: entrypoint  
+              name: dbrootpwd
+              key: dbrootpwd
       imagePullSecrets:
       - name: ecr-cred
