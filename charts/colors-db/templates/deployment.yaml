@@ -27,8 +27,6 @@ spec:
         - name: mysql-db
           containerPort: {{ .Values.dbservice.port }}
           protocol: TCP
-        command: ["/bin/bash"]
-        args: ["/grp8-scripts/edited-entrypoint.sh"]
         env:
         - name: MYSQL_DATABASE
           valueFrom:
