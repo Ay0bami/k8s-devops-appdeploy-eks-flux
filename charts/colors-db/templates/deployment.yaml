@@ -4,9 +4,7 @@ metadata:
   name: {{ .Values.deployname }}
   namespace: {{ .Values.namespace }}
   labels:
-    infra: backend
-    app: mysql
-    env: prod
+    {{- include "colors-db.selectorLabels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -23,6 +21,9 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.dbrepo.name }}:{{ .Values.dbrepo.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        volumeMounts:
+        - mountPath: /data/db
+          name: mysql-volume
         ports:
         - name: mysql-db
           containerPort: {{ .Values.dbservice.port }}
@@ -40,3 +41,7 @@ spec:
               key: dbpwd
       imagePullSecrets:
       - name: ecr-cred
+      volumes:
+        - name: mysql-volume
+          persistentVolumeClaim:
+            claimName: mysql-pvc
