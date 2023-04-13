@@ -13,6 +13,12 @@ apprepo:
 namespace: color-be
 deployname: mysql-db-dep
 
+colors-db:
+  selectorLabels:
+    infra: backend
+    app: mysql
+    env: prod
+
 replicaCount: 1
 
 image:
@@ -65,3 +71,6 @@ autoscaling:
   maxReplicas: 2
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
+  
+mysql_storage:
+  size: 2Gi
