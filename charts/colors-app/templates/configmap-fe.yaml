@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: webappinfo
-  namespace: color-fe
+  namespace: {{ .Values.namespace }}
 data:
   bgimage: "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3Y1NDZiYXRjaDMtbXludC0zMS1iYWRnZXdhdGVyY29sb3JfMS5qcGc.jpg"
   ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan, Superman, Thor"
