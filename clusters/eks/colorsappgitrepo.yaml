@@ -2,12 +2,12 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: colorsapp
-  namespace: color-fe
+  namespace: final
 spec:
   interval: 1m
   url: https://github.com/KSBolton/k8s-devops-appdeploy-eks
   ref:
-    branch: flux-trial
+    branch: flux-trial-eks
   ignore: |
     # exclude all
     /*
@@ -18,7 +18,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: colorsapp
-  namespace: color-fe
+  namespace: final
 spec:
   interval: 1m
   releaseName: colorsapp
