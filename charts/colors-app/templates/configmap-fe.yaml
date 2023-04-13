@@ -4,6 +4,6 @@ metadata:
   name: webappinfo
   namespace: {{ .Values.namespace }}
 data:
-  bgimage: "https://thumbs.dreamstime.com/b/spring-summer-season-abstract-nature-background-grass-blue-sky-back-49716369.jpg"
-  ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan, Superman, Thor"
+  bgimage: "https://img.freepik.com/free-vector/stylish-white-background-with-diagonal-lines_1017-33199.jpg?w=1380&t=st=1681363096~exp=1681363696~hmac=5c9963a03bbf633129e355942f2ff99f2e41cd2629646a9474892656a43c1a22"
+  ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan, Superman, Thor, Ryan Reynolds"
   dbuser: "dbadmin"
