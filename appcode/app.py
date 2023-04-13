@@ -130,6 +130,9 @@ if __name__ == '__main__':
     else:
         print("No command line argument or environment variable. Picking a Random Color =" + COLOR)
 
+    if BGIMAGE:
+        print(f"The current background can be found at URL: {BGIMAGE}")
+
     # Check if input color is a supported one
     if COLOR not in color_codes:
         print("Color not supported. Received '" + COLOR + "' expected one of " + SUPPORTED_COLORS)
