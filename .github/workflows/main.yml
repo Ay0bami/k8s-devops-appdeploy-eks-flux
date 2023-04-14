@@ -32,7 +32,7 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_APP_REPO: clo835-a1-webapp
         ECR_DB_REPO: clo835-a1-mysqldb
-        DB_PWD: ${{ secrets.DB_PWD }}
+        DB_PWD: ${{ secrets.DBPWD }}
         IMAGE_TAG: latest
       run: |
         cd appcode/
