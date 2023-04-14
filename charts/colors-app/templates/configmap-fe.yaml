@@ -4,6 +4,6 @@ metadata:
   name: webappinfo
   namespace: color-fe
 data:
-  bgimage: "https://img.freepik.com/free-photo/perspective-home-desk-white-frame_1258-255.jpg?w=996&t=st=1681458442~exp=1681459042~hmac=a39084d530ec26b25f325c095cbbaf009020a9855c2161c9e04296300c64320c"
-  ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan, Yu-Yu Hakusho"
+  bgimage: "https://img.freepik.com/free-photo/abstract-uv-ultraviolet-light-composition_23-2149243965.jpg?w=1060&t=st=1681459746~exp=1681460346~hmac=ef84af0451cbebdb6d5bc16993dcfa9f60fbb2f521f60175ed048ad2e574deda"
+  ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan, Spike Spiegel"
   dbuser: "dbadmin"
