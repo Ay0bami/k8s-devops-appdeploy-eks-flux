@@ -2,7 +2,7 @@ name: Build & Push to ECR
 
 on: 
   pull_request:
-    branches: [ flux-trial ]
+    branches: [ flux-trial, flux-trial-eks ]
     
   workflow_dispatch:
 
