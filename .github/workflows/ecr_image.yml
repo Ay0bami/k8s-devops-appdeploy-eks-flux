@@ -37,7 +37,7 @@ jobs:
         IMAGE_TAG: latest
       run: |
         #Build Docker image
-        docker build -t $ECR_REGISTRY/$ECR_APP_REPO:$IMAGE_TAG .
+        docker build -t $ECR_REGISTRY/$ECR_APP_REPO:$IMAGE_TAG -f Dockerfile .
         docker build -t $ECR_REGISTRY/$ECR_DB_REPO:$IMAGE_TAG -f Dockerfile_mysql .
         # Make custom bridge network
         docker network create -d bridge assign1
