@@ -33,7 +33,8 @@ jobs:
         ECR_APP_REPO: clo835-a1-webapp
         ECR_DB_REPO: clo835-a1-mysqldb
         DB_PWD: ${{ secrets.DB_PWD }}
-        IMAGE_TAG: latest
+        DBIMAGE_TAG: latest
+        APPIMAGE_TAG: v3.0
       run: |
         docker build -t $ECR_REGISTRY/$ECR_APP_REPO:$IMAGE_TAG .
         docker build -t $ECR_REGISTRY/$ECR_DB_REPO:$IMAGE_TAG -f Dockerfile_mysql .
@@ -41,11 +42,11 @@ jobs:
         docker network create -d bridge assign1
         # Unit test
         docker run --name mysql-db -d -e MYSQL_ROOT_PASSWORD=$DB_PWD --network assign1  \
-        $ECR_REGISTRY/$ECR_DB_REPO:$IMAGE_TAG
+        $ECR_REGISTRY/$ECR_DB_REPO:$DBIMAGE_TAG
         # Wait for sql container to listen on port
         sleep 15
         docker run -itd -p 80:8080 -e DBHOST="mysql-db" -e DBPORT="3306" -e APP_COLOR="blue" \
-        -e DBPWD=$DB_PWD --net assign1 --name webapp $ECR_REGISTRY/$ECR_APP_REPO:$IMAGE_TAG
+        -e DBPWD=$DB_PWD --net assign1 --name webapp $ECR_REGISTRY/$ECR_APP_REPO:$APPIMAGE_TAG
         docker ps
         sleep 5
         curl localhost -vvv
