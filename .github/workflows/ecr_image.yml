@@ -49,7 +49,7 @@ jobs:
         $ECR_REGISTRY/$ECR_DB_REPO:$DBIMAGE_TAG
         # Wait for sql container to listen on port
         sleep 15
-        docker run -itd -p 80:8080 -e DBHOST="mysql-db" -e DBPORT="3306" -e APP_COLOR="blue" \
+        docker run -itd -p 80:81 -e DBHOST="mysql-db" -e DBPORT="3306" -e APP_COLOR="blue" \
         -e DBPWD=$DB_PWD --net assign1 --name webapp $ECR_REGISTRY/$ECR_APP_REPO:$APPIMAGE_TAG
         docker ps
         sleep 5
