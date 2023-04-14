@@ -35,7 +35,7 @@ jobs:
         DB_PWD: ${{ secrets.DB_PWD }}
         IMAGE_TAG: latest
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_APP_REPO:$IMAGE_TAG .
+        docker build -t $ECR_REGISTRY/$ECR_APP_REPO:$IMAGE_TAG -f Dockerfile .
         docker build -t $ECR_REGISTRY/$ECR_DB_REPO:$IMAGE_TAG -f Dockerfile_mysql .
         # Make custom bridge network
         docker network create -d bridge assign1
