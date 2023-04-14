@@ -1,0 +1,53 @@
+name: Build & Push to ECR
+
+on: 
+  pull_request:
+    branches: [ flux-trial-eks ]
+    
+  workflow_dispatch:
+
+jobs:
+  
+  build:
+    
+    name: Build Image
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+        AWS_REGION: ${{ vars.AWS_REGION }}
+
+    - name: Build, test, tag, and push image to Amazon ECR
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_APP_REPO: clo835-a1-webapp
+        ECR_DB_REPO: clo835-a1-mysqldb
+        DB_PWD: ${{ secrets.DB_PWD }}
+        IMAGE_TAG: latest
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_APP_REPO:$IMAGE_TAG .
+        docker build -t $ECR_REGISTRY/$ECR_DB_REPO:$IMAGE_TAG -f Dockerfile_mysql .
+        # Make custom bridge network
+        docker network create -d bridge assign1
+        # Unit test
+        docker run --name mysql-db -d -e MYSQL_ROOT_PASSWORD=$DB_PWD --network assign1  \
+        $ECR_REGISTRY/$ECR_DB_REPO:$IMAGE_TAG
+        # Wait for sql container to listen on port
+        sleep 15
+        docker run -itd -p 80:8080 -e DBHOST="mysql-db" -e DBPORT="3306" -e APP_COLOR="blue" \
+        -e DBPWD=$DB_PWD --net assign1 --name webapp $ECR_REGISTRY/$ECR_APP_REPO:$IMAGE_TAG
+        docker ps
+        sleep 5
+        curl localhost -vvv
+        docker push $ECR_REGISTRY/$ECR_APP_REPO:$IMAGE_TAG
+        docker push $ECR_REGISTRY/$ECR_DB_REPO:$IMAGE_TAG
