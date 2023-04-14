@@ -4,6 +4,6 @@ metadata:
   name: webappinfo
   namespace: color-fe
 data:
-  bgimage: "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3Y1NDZiYXRjaDMtbXludC0zMS1iYWRnZXdhdGVyY29sb3JfMS5qcGc.jpg"
-  ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan, Superman, Thor"
+  bgimage: "https://img.freepik.com/free-photo/perspective-home-desk-white-frame_1258-255.jpg?w=996&t=st=1681458442~exp=1681459042~hmac=a39084d530ec26b25f325c095cbbaf009020a9855c2161c9e04296300c64320c"
+  ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan, Yu-Yu Hakusho"
   dbuser: "dbadmin"
