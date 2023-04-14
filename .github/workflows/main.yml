@@ -3,6 +3,7 @@ name: Build & Push to ECR
 on: 
   push:
     branches: [ flux-trial-eks ]
+    paths: appcode/**
     
   workflow_dispatch:
 
@@ -35,8 +36,6 @@ jobs:
         DB_PWD: ${{ secrets.DBPWD }}
         IMAGE_TAG: latest
       run: |
-        cd appcode/
-        ls -ltra
         #Build Docker image
         docker build -t $ECR_REGISTRY/$ECR_APP_REPO:$IMAGE_TAG 
         docker build -t $ECR_REGISTRY/$ECR_DB_REPO:$IMAGE_TAG -f Dockerfile_mysql .
