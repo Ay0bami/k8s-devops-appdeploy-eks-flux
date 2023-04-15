@@ -8,7 +8,7 @@ metadata:
 spec:
   interval: 1m0s
   ref:
-    branch: flux-trial
+    branch: flux-trial-eks
   secretRef:
     name: flux-system
   url: ssh://git@github.com/KSBolton/k8s-devops-appdeploy-eks
