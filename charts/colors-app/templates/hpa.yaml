@@ -2,12 +2,12 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
  name: hpa
- namespace: final
+ namespace: {{ .Values.namespace }}
 spec:
  scaleTargetRef:
    apiVersion: apps/v1
    kind: Deployment
-   name: mysql-app-dep
+   name: {{ .Values.deployname }}
  minReplicas: 1
  maxReplicas: 10
  metrics:
