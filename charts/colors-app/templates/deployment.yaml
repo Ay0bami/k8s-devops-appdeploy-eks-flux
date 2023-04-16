@@ -27,6 +27,11 @@ spec:
         - name: {{ .Values.appservice.name }}
           containerPort: {{ .Values.appservice.port }}
           protocol: TCP
+        resources:
+          limits:
+            cpu: {{ .Values.appservice.cpulimit }}
+          requests:
+            cpu: {{ .Values.appservice.cpurequests }}
         env:
         - name: DBHOST
           value: {{ .Values.env.dbhost | quote }}
