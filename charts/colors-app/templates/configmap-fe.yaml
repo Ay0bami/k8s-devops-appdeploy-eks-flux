@@ -4,6 +4,6 @@ metadata:
   name: webappinfo
   namespace: {{ .Values.namespace }}
 data:
-  bgimage: "s3://clo835bgimg/bg9.jpg"
+  bgimage: "s3://clo835bgimg/bg8.jpg"
   ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan"
   dbuser: "dbadmin"
