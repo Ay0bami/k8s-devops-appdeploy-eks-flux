@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-app-dep
-  namespace: final
+  name: mysql-app-dep2
+  namespace: final2
   labels:
     infra: frontend
     app: employees
