@@ -29,9 +29,9 @@ spec:
           protocol: TCP
         resources:
           limits:
-            cpu: {{ .Values.resources.cpulimit }}
+            cpu: {{ .Values.resources.limits.cpu }}
           requests:
-            cpu: {{ .Values.resources.cpurequests }}
+            cpu: {{ .Values.resources.requests.cpu }}
         env:
         - name: DBHOST
           value: {{ .Values.env.dbhost | quote }}
