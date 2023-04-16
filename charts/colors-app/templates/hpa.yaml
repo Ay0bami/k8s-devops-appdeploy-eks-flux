@@ -1,8 +1,8 @@
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
  name: hpa
- namespace: final
+ namespace: final2
 spec:
  scaleTargetRef:
    apiVersion: apps/v1
@@ -10,4 +10,11 @@ spec:
    name: mysql-app-dep
  minReplicas: 1
  maxReplicas: 10
- targetCPUUtilizationPercentage: 80
+ metrics:
+ - type: Resource
+   resource:
+    name: cpu
+    target:
+     type: Utilization
+     averageUtilization: 60
+ #targetCPUUtilizationPercentage: 80
