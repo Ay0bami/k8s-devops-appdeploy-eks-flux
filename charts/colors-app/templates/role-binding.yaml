@@ -6,7 +6,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: clo835
-  namespace: final
+  namespace: {{ .Values.namespace }}
 roleRef:
   kind: ClusterRole
   name: create-list-namespaces
