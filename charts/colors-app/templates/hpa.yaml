@@ -4,17 +4,10 @@ metadata:
  name: hpa
  namespace: {{ .Values.namespace }}
 spec:
- scaleTargetRef:
-   apiVersion: apps/v1
-   kind: Deployment
-   name: {{ .Values.deployname }}
- minReplicas: {{ .Values.autoscaling.minReplicas }}
- maxReplicas: {{ .Values.autoscaling.maxReplicas }}
- metrics:
- - type: Resource
-   resource:
-    name: cpu
-    target:
-     type: Utilization
-     averageUtilization: {{ .Values.deployname.averageUtilization }}
- #targetCPUUtilizationPercentage: 80
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Values.deployname }}
+  minReplicas: {{ .Values.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.autoscaling.maxReplicas }}
+  targetCPUUtilizationPercentage: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
