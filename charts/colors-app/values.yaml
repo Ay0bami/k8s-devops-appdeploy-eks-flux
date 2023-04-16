@@ -50,6 +50,8 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
+  cpulimit: 100m
+  cpurequests: 50m
 
 autoscaling:
   enabled: false
