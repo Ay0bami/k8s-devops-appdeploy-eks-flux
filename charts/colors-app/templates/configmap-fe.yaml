@@ -5,5 +5,5 @@ metadata:
   namespace: {{ .Values.namespace }}
 data:
   bgimage: "s3://clo835bgimg/bg5.jpg"
-  ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan, Superman, Thor, Ryan Reynolds, Miles Morales"
+  ournames: "Islamiyat Osuolale, Kamaal Bolton, Naveendran Wijeyasekaran, Oluwole Amusan"
   dbuser: "dbadmin"
