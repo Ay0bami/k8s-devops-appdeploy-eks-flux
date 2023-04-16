@@ -8,13 +8,13 @@ spec:
    apiVersion: apps/v1
    kind: Deployment
    name: {{ .Values.deployname }}
- minReplicas: 1
- maxReplicas: 10
+ minReplicas: {{ .Values.autoscaling.minReplicas }}
+ maxReplicas: {{ .Values.autoscaling.maxReplicas }}
  metrics:
  - type: Resource
    resource:
     name: cpu
     target:
      type: Utilization
-     averageUtilization: 60
+     averageUtilization: {{ .Values.deployname.averageUtilization }}
  #targetCPUUtilizationPercentage: 80
