@@ -36,14 +36,14 @@ GitHub Actions workflow that builds and publishes application image to Amazon EC
 1.6. Your Flask application should listen on port 81.
 ```
 
-```Create Dockerfile, docker image and test the application locally in your Cloud9 environment.```
+```2. Create Dockerfile, docker image and test the application locally in your Cloud9 environment.```
 
-```Store your application in GitHub and create a GitHub Action that builds and tests your application. Upon successful unit test, GitHub Action publishes your image to Amazon ECR.```
+```3. Store your application in GitHub and create a GitHub Action that builds and tests your application. Upon successful unit test, GitHub Action publishes your image to Amazon ECR.```
 
-```Create Amazon EKS cluster with 2 worker nodes and a namespace “final”.```
+```4. Create Amazon EKS cluster with 2 worker nodes and a namespace “final”.```
 
 ```
-Create the following K8s manifests and deploy the respective K8s resources:
+5. Create the following K8s manifests and deploy the respective K8s resources:
 
 5.1. ConfigMap to provide the application with background image URL
 
@@ -62,15 +62,15 @@ Create the following K8s manifests and deploy the respective K8s resources:
 5.8. Service that exposes the Flask application to the Internet users and has a stable endpoint. Choose the service type.
 ```
 
-```Verify that data is persisted when the MySQL pod is deleted and re-created by the replicaset, Amazon EBS volume and K8s PV (PersistentVolume) are created dynamically when application pod is created```
+```6. Verify that data is persisted when the MySQL pod is deleted and re-created by the replicaset, Amazon EBS volume and K8s PV (PersistentVolume) are created dynamically when application pod is created```
 
-```Deploy metrics monitor and HPA, update your manifests and demonstrate pods auto-scaling as a response to the traffic load.```
+```7. Deploy metrics monitor and HPA, update your manifests and demonstrate pods auto-scaling as a response to the traffic load.```
 
-```Verify that your flask application is successfully loading via browser.```
+```8. Verify that your flask application is successfully loading via browser.```
 
-```Relace your background image in the S3 bucket, update ConfigMap with the new image. Make sure the new image is reflected in the browser.```
+```9. Replace your background image in the S3 bucket, update ConfigMap with the new image. Make sure the new image is reflected in the browser.```
 
-```add deployment automation with FluxCD.```
+```10. Add deployment automation with FluxCD.```
 
 # Learning Outcomes Covered in this Activity
 ```
