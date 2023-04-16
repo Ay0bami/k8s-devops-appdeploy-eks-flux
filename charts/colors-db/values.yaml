@@ -65,3 +65,6 @@ autoscaling:
   maxReplicas: 2
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
+
+mysql_storage:
+  size: 2Gi

@@ -13,7 +13,8 @@ DBPWD = os.environ.get("DBPWD") or "passwors"
 DATABASE = os.environ.get("DATABASE") or "employees"
 COLOR_FROM_ENV = os.environ.get('APP_COLOR') or "lime"
 DBPORT = int(os.environ.get("DBPORT"))
-BGIMAGE = os.environ.get("BGIMAGE") or "https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7898.jpg?w=996&t=st=1681209605~exp=1681210205~hmac=b8dffedf2197e4a960b8dd881b4041372c57ad8a34cd682164cf36b8ec3a3c8f"
+BGIMAGE = os.environ.get("BGIMAGE")
+BGIMAGE_PATH = "img/bgimg.jpg" or "https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7898.jpg?w=996&t=st=1681209605~exp=1681210205~hmac=b8dffedf2197e4a960b8dd881b4041372c57ad8a34cd682164cf36b8ec3a3c8f"
 OURNAMES = os.environ.get("OURNAMES")
 
 # Create a connection to the MySQL database
@@ -49,11 +50,11 @@ COLOR = random.choice(["red", "green", "blue", "blue2", "darkblue", "pink", "lim
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('addemp.html', bg=BGIMAGE, fiwiname=OURNAMES)
+    return render_template('addemp.html', bg=BGIMAGE_PATH, fiwiname=OURNAMES)
 
 @app.route("/about", methods=['GET','POST'])
 def about():
-    return render_template('about.html', bg=BGIMAGE, fiwiname=OURNAMES)
+    return render_template('about.html', bg=BGIMAGE_PATH, fiwiname=OURNAMES)
     
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
@@ -77,11 +78,11 @@ def AddEmp():
         cursor.close()
 
     print("all modification done...")
-    return render_template('addempoutput.html', name=emp_name, bg=BGIMAGE, fiwiname=OURNAMES)
+    return render_template('addempoutput.html', name=emp_name, bg=BGIMAGE_PATH, fiwiname=OURNAMES)
 
 @app.route("/getemp", methods=['GET', 'POST'])
 def GetEmp():
-    return render_template("getemp.html", bg=BGIMAGE, fiwiname=OURNAMES)
+    return render_template("getemp.html", bg=BGIMAGE_PATH, fiwiname=OURNAMES)
 
 
 @app.route("/fetchdata", methods=['GET','POST'])
@@ -110,7 +111,7 @@ def FetchData():
         cursor.close()
 
     return render_template("getempoutput.html", id=output["emp_id"], fname=output["first_name"],
-                           lname=output["last_name"], interest=output["primary_skills"], location=output["location"], bg=BGIMAGE, fiwiname=OURNAMES)
+                           lname=output["last_name"], interest=output["primary_skills"], location=output["location"], bg=BGIMAGE_PATH, fiwiname=OURNAMES)
 
 if __name__ == '__main__':
     
@@ -131,7 +132,8 @@ if __name__ == '__main__':
         print("No command line argument or environment variable. Picking a Random Color =" + COLOR)
 
     if BGIMAGE:
-        print(f"The current background can be found at URL: {BGIMAGE}")
+        print(f"The background can be found at URL: {BGIMAGE}")
+        print(f"The local background can be found at this path: {BGIMAGE_PATH}")
 
     # Check if input color is a supported one
     if COLOR not in color_codes:
