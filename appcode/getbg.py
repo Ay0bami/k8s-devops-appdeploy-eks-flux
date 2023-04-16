@@ -17,4 +17,4 @@ try:
     if len(split_str) > 0:
         s3.download_file(split_str[2], split_str[-1], '/app/static/img/bgimg.jpg')
 except (NoCredentialsError) as e:
-    print(e)                    
+    print(e)
